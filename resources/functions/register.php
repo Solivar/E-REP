@@ -9,18 +9,16 @@ $sql = "SELECT * FROM $mysqluser WHERE name = '" . mysql_real_escape_string($_PO
     $result = mysql_query($sql) or die('error');
     $row = mysql_fetch_assoc($result);
 // End of connection to MYSQL script
-	echo "1";
+	
 	if ($password < 6) { // checks for the password length
 		echo 'Your password has to be at least 6 chracters long!';
 	}
 	elseif ($usernamel < 6) {// checks for the username length
 		echo 'Your username has to be atleast 6 characters long!';
 	}
-	echo "2";
 	elseif(mysql_num_rows($result)) { // checks if username is not already taken
 		echo 'Username already taken!';
 	}
-	echo "3";
 		else {
 				if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) { // validates the email address, does not recognize if it's fake
 							if ($_POST["regpass1"] == $_POST["regpass2"]) {
@@ -30,18 +28,12 @@ $sql = "SELECT * FROM $mysqluser WHERE name = '" . mysql_real_escape_string($_PO
 												$sql = "insert into $mysqluser (name,password,email)values('$_POST[regname]','$_POST[regpass1]','$_POST[email]')";
 												$result = mysql_query ($sql,$conn) or die (mysql_error());
 							}
-							echo "4";
-							else {echo "Passwords do not match";}
 				}
 					else {
 						echo "Invalid email";
-						echo "5";
 					}
 			header("location:./index.php");
 		}	
-		else {
-					print"invalid data";
-		}	
-		echo "debug";
+		
 ?>
 
