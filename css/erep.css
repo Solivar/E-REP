@@ -1,3 +1,11 @@
 p {
 	background-color: red;
 }
+
+/* === REGISTRATION FORM === */
+
+.registration-form {
+	width: 200px;
+	height: 350px;
+	border: 2px solid green;
+}
