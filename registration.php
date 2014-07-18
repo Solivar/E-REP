@@ -3,10 +3,11 @@
 <?php include 'header.php'; ?>
 <body>
 <?php include 'navigation.php'; ?>
-<form>
-Username:<input type="text" /><br />
-Password: <input type="password" /><br />
-E-mail: <input type="text" /><br />
+<form ACTION="register.php" METHOD=post>
+<p>Username:</p><input name="regname" type="text" size"20"></input>
+<p>E-mail:</p><input name="email" type="text" size"20"></input>
+<p>Password:</p><input name="regpass1" type="password" size"20"></input>
+<p>Repeat Password:</p><input name="regpass2" type="password" size"20"></input>
 <input type="submit" />
 </form>
 <?php include 'footer.php'; ?>
