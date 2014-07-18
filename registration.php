@@ -3,7 +3,7 @@
 <?php include 'header.php'; ?>
 <body>
 <?php include 'navigation.php'; ?>
-<form ACTION="register.php" METHOD=post>
+<form ACTION="./resources/functions/register.php" METHOD=post>
 <p>Username:</p><input name="regname" type="text" size"20"></input>
 <p>E-mail:</p><input name="email" type="text" size"20"></input>
 <p>Password:</p><input name="regpass1" type="password" size"20"></input>
