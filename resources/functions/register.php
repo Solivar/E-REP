@@ -33,7 +33,5 @@ $sql = "SELECT * FROM $mysqluser WHERE name = '" . mysql_real_escape_string($_PO
 						echo "Invalid email";
 					}
 			header("location:./index.php");
-		}	
-		
+		}
 ?>
-
