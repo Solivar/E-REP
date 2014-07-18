@@ -1,6 +1,6 @@
 <?php
 
-include_once "./config.php"; //Includes the config file for MYSQL connection
+include_once "./resources/config.php"; //Includes the config file for MYSQL connection
 // Connection to MYSQL for the first time
 $conn = mysql_connect("$mysqlhost", "$mysqluser", "$mysqlpassword")or die("cannot connect"); 
 mysql_connect("$mysqlhost", "$mysqluser", "$mysqlpassword")or die("cannot connect"); 
