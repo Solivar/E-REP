@@ -9,3 +9,21 @@ p {
 	height: 350px;
 	border: 2px solid green;
 }
+
+/* === NAVIGATION === */
+
+.navigation {
+	width: 600px;
+	height: 25px;
+	background-color: lime;
+}
+
+.navigation ul {
+	display: inline;
+}
+
+.navigation li {
+	float: left;
+	list-style-type: none;
+	padding-right: 10px;
+}
