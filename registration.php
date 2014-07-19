@@ -2,7 +2,6 @@
 <html>
 <?php include 'header.php'; ?>
 <body>
-<?php include 'navigation.php'; ?>
 <div class="registration-form">
 	<form ACTION="./resources/function/register.php" METHOD="post">
 		<p>Username:</p><input name="regname" type="text" size="20"></input>
