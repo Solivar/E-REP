@@ -2,8 +2,14 @@
 <html>
 <?php include 'header.php'; ?>
 <body>
-<div class="wrapper">
-	<div id="content">
+<div id="container">
+	<div id="sign-up">
+		<p>Sign up for free by clicking the button below!</p>
+		<div>
+			<a href="#">Sign Up</a>
+		</div>
+	</div>
+	<div class="content">
 	<p>Lorem ipsum dolor sit amet, te has habeo appellantur, stet eripuit assentior vim eu. Ne populo verear conceptam pro, est sale soluta ex. Te mentitum adversarium sit, et hinc delicata quo, eos te modus inani. Sit ad pertinax petentium. His id fabellas theophrastus consequuntur, no audiam voluptaria usu, autem soleat similique quo in. Ea vel oblique admodum, mea ne saepe omnesque gubergren, veritus insolens sed ne.
 
 	Denique vituperatoribus id has. Eos ea bonorum splendide. Vis homero urbanitas ne. Eum ex electram vulputate definitionem, in pri tollit soluta.
