@@ -14,12 +14,9 @@
 		<li><a href="index.php">Home</a></li>
 		<li><a href="app.php">App</a></li>
 		<li><a href="members.php">Members</a></li>
-<<<<<<< HEAD
 		<li><a href="creategroup.php">Groups</a></li>
 		<?php  if(isset($_SESSION['$myusername']) == FALSE) { 
-=======
 		<?php  session_start(); if(isset($_SESSION['myusername']) == FALSE) { 
->>>>>>> de4232415aee5e08ac266bd2337d9882fd67457a
 		echo '<li><a href="login.php">Login</a></li>'; 
 		echo '<li><a href="registration.php">Registration</a></li>';}?>
 		<?php  if(isset($_SESSION['myusername']) == TRUE) { 
