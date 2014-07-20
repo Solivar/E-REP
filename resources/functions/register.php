@@ -21,7 +21,7 @@
 		}else{
 			$qq = mysqli_query($con, "INSERT INTO user (username,password,email) VALUES ('$regname', '$regpass1MD5', '$email')");
 			if ($qq) {
-				echo 'Registered successfully!';
+				header("location:../../index.php");
 			}else
 				echo 'Failed to register.';
 		}

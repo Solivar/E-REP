@@ -34,8 +34,8 @@ session_start();
 $_SESSION['myusername'] = $myusername;
 $_SESSION['mypassword'] = $mypassword;
 if(isset($_SESSION['myusername'])){
-//header("location:../../index.php");
-echo 'Session set';
+header("location:../../index.php");
+
 }
 }
 else {
