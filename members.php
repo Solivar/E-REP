@@ -18,9 +18,9 @@
 	  {
 	  // Fetch one and one row
 	  $number = 1;
-	  while ($row=mysqli_fetch_row($result))
+	  while ($row = mysqli_fetch_array($result))
 		{
-		echo $number . ' ' . $row[1] . "<br />";
+		echo $number . ' ' . $row['username'] . "<br />";
 		$number++;
 		}
 	  // Free result set
@@ -29,6 +29,21 @@
 
 	mysqli_close($con);
 ?>
+	</div>
+	<div class="content">
+		<h2>Search for a user below:</h2><br />
+		<br />
+		<form action="profile.php" method="GET">
+			<table>
+				<tr>
+					<td>Username:</td>
+					<td><input type="text" id="username" name="username" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" id="submit" name="submit" value="View Profile" /></td>
+				</tr>
+				</table>
+		</form>
 	</div>
 </div>
 <?php include 'footer.php'; ?>
