@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2014 at 02:01 PM
+-- Generation Time: Jul 20, 2014 at 03:12 PM
 -- Server version: 5.5.36
 -- PHP Version: 5.4.27
 
@@ -28,13 +28,14 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` int(11) NOT NULL,
-  `group_password` int(11) NOT NULL,
-  `members` int(11) NOT NULL,
-  `member_points` int(11) NOT NULL DEFAULT '0',
-  `VIP` int(11) NOT NULL,
+  `name` varchar(33) NOT NULL,
+  `group_password` varchar(33) NOT NULL,
+  `members` varchar(33) NOT NULL,
+  `member_points` varchar(11) NOT NULL DEFAULT '0',
+  `VIP` int(11) NOT NULL DEFAULT '0',
+  `owner_id` varchar(33) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -59,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `group9` varchar(33) NOT NULL,
   `group10` varchar(33) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
