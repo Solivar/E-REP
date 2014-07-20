@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jul 18, 2014 at 08:52 AM
--- Server version: 5.5.16
--- PHP Version: 5.3.8
+-- Host: 127.0.0.1
+-- Generation Time: Jul 20, 2014 at 02:01 PM
+-- Server version: 5.5.36
+-- PHP Version: 5.4.27
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `EREP`
+-- Database: `erep`
 --
 
 -- --------------------------------------------------------
@@ -44,22 +44,22 @@ CREATE TABLE IF NOT EXISTS `groups` (
 
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` int(11) NOT NULL,
-  `password` int(11) NOT NULL,
+  `username` varchar(11) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `VIP` int(11) NOT NULL DEFAULT '0',
-  `email` int(11) NOT NULL,
-  `group1` int(11) NOT NULL,
-  `group2` int(11) NOT NULL,
-  `group3` int(11) NOT NULL,
-  `group4` int(11) NOT NULL,
-  `group5` int(11) NOT NULL,
-  `group6` int(11) NOT NULL,
-  `group7` int(11) NOT NULL,
-  `group8` int(11) NOT NULL,
-  `group9` int(11) NOT NULL,
-  `group10` int(11) NOT NULL,
+  `email` varchar(33) NOT NULL,
+  `group1` varchar(33) NOT NULL,
+  `group2` varchar(33) NOT NULL,
+  `group3` varchar(33) NOT NULL,
+  `group4` varchar(33) NOT NULL,
+  `group5` varchar(33) NOT NULL,
+  `group6` varchar(33) NOT NULL,
+  `group7` varchar(33) NOT NULL,
+  `group8` varchar(33) NOT NULL,
+  `group9` varchar(33) NOT NULL,
+  `group10` varchar(33) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
