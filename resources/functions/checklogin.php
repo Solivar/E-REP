@@ -3,8 +3,7 @@
 include "../config.php";
 
 // Connect to server and select databse.
-$conn = mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-mysql_select_db("$db_name")or die("cannot select DB");
+$con = mysqli_connect('127.0.0.1', 'root', '', 'erep');
 
 
 $salt = "ripemd128";
@@ -15,15 +14,15 @@ $mypassword=$_POST['mypassword'];
 // To protect MySQL injection (more detail about MySQL injection)
 $myusername = stripslashes($myusername);
 $mypassword = stripslashes($mypassword);
-$myusername = mysql_real_escape_string($myusername);
-$mypassword = mysql_real_escape_string($mypassword);
+$myusername = $con->real_escape_string($myusername);
+$mypassword = $con->real_escape_string($mypassword);
 $mypassword = hash($salt,$mypassword);
 
 
-$result = mysql_query("SELECT * FROM game WHERE username='$myusername' ");
-   while($row = mysql_fetch_array($result, MYSQL_NUM)) {
+$result = mysqli_query($con,"SELECT * FROM user WHERE username='$myusername' ");
+   while($row = mysqli_fetch_array($result)) {
    $username2 = $row['username'];
-   $password2 = $row['username'];
+   $password2 = $row['password'];
   }
 
   
@@ -35,12 +34,12 @@ session_start();
 $_SESSION['myusername'] = $myusername;
 $_SESSION['mypassword'] = $mypassword;
 if(isset($_SESSION['myusername'])){
-header("location:../index.php");
+header("location:../../index.php");
 }
 }
 else {
 echo "Wrong Username or Password";
-
+echo $mypassword;
 }
 
 ?>

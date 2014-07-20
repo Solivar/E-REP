@@ -1,9 +1,10 @@
 <?php
 	session_start();
+	$salt = "ripemd128";
 	$con = mysqli_connect('127.0.0.1', 'root', '', 'erep');
 	if (isSet($_POST['reg']) && isSet($_POST['regname']) && isSet($_POST['regpass1']) && $_POST['regname'] != '' && $_POST['regpass1'] != '' && $_POST['regpass1'] == $_POST['regpass2']) {
 		$regpass1 = $_POST['regpass1'];
-		$regpass1MD5 = md5($regpass1);
+		$regpass1MD5 = hash($salt,$_POST['regpass1']);
 		$regname = $_POST['regname'];
 		$email = $_POST['email'];
 		$q = mysqli_query($con, "SELECT * FROM user WHERE `username`='$regname'");
