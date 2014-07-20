@@ -17,7 +17,7 @@
 		<?php  session_start(); if(isset($_SESSION['myusername']) == FALSE) { 
 		echo '<li><a href="login.php">Login</a></li>'; 
 		echo '<li><a href="registration.php">Registration</a></li>';}?>
-		<?php  session_start(); if(isset($_SESSION['myusername']) == TRUE) { 
+		<?php  if(isset($_SESSION['myusername']) == TRUE) { 
 		echo '<li><a href="resources/functions/logout.php">Logout</a></li>';}?>
 	</ul>
 </div>
