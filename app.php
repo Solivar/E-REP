@@ -6,7 +6,7 @@
 	<div class="content">
 		<p>This is the application page</p>
 			<p>Welcome <?php echo $_SESSION['myusername']; ?></p>
-		<p><a href="">My Profile</a></p>
+		<p><?php echo '<a href="http://localhost/E-REP/profile.php?username=' . $_SESSION['myusername'] . '&submit=View+Profile">My Profile</a>' ?></p>
 	</div>
 </div>
 <?php include 'footer.php'; ?>

@@ -20,7 +20,7 @@
 	  $number = 1;
 	  while ($row = mysqli_fetch_array($result))
 		{
-		echo $number . ' ' . $row['username'] . "<br />";
+		echo $number . ' ' . '<a href="http://localhost/E-REP/profile.php?username=' . $row['username'] . '&submit=View+Profile">' . $row['username'] . '</a>' .'<br />';
 		$number++;
 		}
 	  // Free result set
