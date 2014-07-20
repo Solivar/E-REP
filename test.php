@@ -1,9 +1,10 @@
 <?php 
-if(isset($_SESSION['$myusername']) == FALSE) {
-echo 'No session';
+session_start();
+if(isset($_SESSION['myusername']) == TRUE) {
+echo 'Session is set';
 }
 else {
-echo 'LOGIN YOU DUMB FUCK!';
+echo 'No session';
 }
 
 ?>
