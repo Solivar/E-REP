@@ -18,14 +18,17 @@ $mypassword = stripslashes($mypassword);
 $myusername = mysql_real_escape_string($myusername);
 $mypassword = mysql_real_escape_string($mypassword);
 $mypassword = hash($salt,$mypassword);
-$sql="SELECT * FROM $tbl_name WHERE name='$myusername' and password='$mypassword'";
-$result=mysql_query($sql);
 
-// Mysql_num_row is counting table row
-$count=mysql_num_rows($result);
 
+$result = mysql_query("SELECT * FROM game WHERE username='$myusername' ");
+   while($row = mysql_fetch_array($result, MYSQL_NUM)) {
+   $username2 = $row['username'];
+   $password2 = $row['username'];
+  }
+
+  
 // If result matched $myusername and $mypassword, table row must be 1 row
-if($count==1){
+if($myusername == $username2 && $mypassword == $password2){
 
 // Register $myusername, $mypassword and redirect to file "login_success.php"
 session_start();

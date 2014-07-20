@@ -12,7 +12,9 @@
 <div id="navigation">
 	<ul>
 		<li><a href="index.php">Home</a></li>
-		<li><a href="registration.php">Registration</a></li>
+		<?php  if(isset($_SESSION['$myusername']) == FALSE) { 
+		echo '<li><a href="login.php">Login</a></li>'; 
+		echo '<li><a href="registration.php">Registration</a></li>';}?>
 	</ul>
 </div>
 </head>

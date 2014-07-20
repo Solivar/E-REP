@@ -8,7 +8,7 @@
 		<p>E-mail:</p><input name="email" type="text" size="20"></input>
 		<p>Password:</p><input name="regpass1" type="password" size="20"></input>
 		<p>Repeat Password:</p><input name="regpass2" type="password" size="20"></input>
-		<input type="submit" />
+		<input type='submit' value='Register' name='reg' />
 	</form>
 </div>
 <?php include 'footer.php'; ?>
