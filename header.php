@@ -15,7 +15,7 @@
 		<li><a href="index.php">Home</a></li>
 		<li><a href="app.php">App</a></li>
 		<li><a href="members.php">Members</a></li>
-		<li><a href="creategroup.php">Groups</a></li>
+		<li><a href="groups.php">Groups</a></li>
 		<?php  session_start(); if(isset($_SESSION['myusername']) == FALSE) { 
 		echo '<li><a href="login.php">Login</a></li>'; 
 		echo '<li><a href="registration.php">Registration</a></li>';}?>

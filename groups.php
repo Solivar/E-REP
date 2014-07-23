@@ -12,6 +12,15 @@
 		</form>
 	</div>
 </div>
+<div id="container">
+	<div class="registration-form">
+		<form ACTION="./resources/functions/jgroup.php" METHOD="post">
+			<p>Group name:</p><input name="groupname" type="text" size="20"></input>
+			<p>Password:</p><input name="grouppass" type="password" size="20"></input>
+			<input type='submit' value='Join group' name='reg' />
+		</form>
+	</div>
+</div>
 <?php include 'footer.php'; ?>
 </body>
 </html>
