@@ -1,8 +1,9 @@
 <head>
 <meta charset="utf-8" />
 <title>E-REP || Virtual reputation tracking</title>
-<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="./css/style.css" />
 <script src="./js/jquery-2.1.1.min.js"></script>
+<script src="./js/base_functions.js"></script>
 <div id="header">
 	<div id="site-branding">
 		<h1>E-REP</h1>

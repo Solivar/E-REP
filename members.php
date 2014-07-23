@@ -18,8 +18,7 @@
 	  {
 	  // Fetch one and one row
 	  $number = 1;
-	  while ($row = mysqli_fetch_array($result))
-		{
+	  while ($row = mysqli_fetch_array($result)) {
 		echo $number . ' ' . '<a href="http://localhost/E-REP/profile.php?username=' . $row['username'] . '&submit=View+Profile">' . $row['username'] . '</a>' .'<br />';
 		$number++;
 		}
@@ -33,7 +32,7 @@
 	<div class="content">
 		<h2>Search for a user below:</h2><br />
 		<br />
-		<form action="profile.php" method="GET">
+		<form id="userProfile" action="profile.php" method="GET">
 			<table>
 				<tr>
 					<td>Username:</td>

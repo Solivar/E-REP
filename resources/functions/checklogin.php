@@ -23,6 +23,7 @@ $result = mysqli_query($con,"SELECT * FROM user WHERE username='$myusername' ");
    while($row = mysqli_fetch_array($result)) {
    $username2 = $row['username'];
    $password2 = $row['password'];
+   $userID = $row['id'];
   }
 
   
@@ -33,6 +34,7 @@ if($myusername == $username2 && $mypassword == $password2){
 session_start();
 $_SESSION['myusername'] = $myusername;
 $_SESSION['mypassword'] = $mypassword;
+$_SESSION['myID'] = $userID;
 if(isset($_SESSION['myusername'])){
 header("location:../../index.php");
 
