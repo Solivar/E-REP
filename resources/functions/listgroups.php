@@ -42,63 +42,72 @@
 	if (!empty($group1)) {
 	$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group1' ");
 	 while($row = mysqli_fetch_array($q)) {
-		$group1 = $row['name'];
+		$group11 = $row['name'];
 	 }
-	echo 'Group 1) '.$group1.'</br>';}
+	echo 'Group 1) '.$group11.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group1.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
+	
 	elseif (!empty($group2)) { 
 		$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group2' ");
 	 while($row = mysqli_fetch_array($q)) {
-		$group1 = $row['name'];
+		$group22 = $row['name'];
 	 }
-	echo 'Group 1) '.$group2.'</br>';}
+	echo 'Group 2) '.$group22.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group2.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
+	
 	elseif (!empty($group3)) { 
 		$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group3' ");
 	 while($row = mysqli_fetch_array($q)) {
-		$group1 = $row['name'];
+		$group33 = $row['name'];
 	 }
-	echo 'Group 1) '.$group3.'</br>';}
+	echo 'Group 3) '.$group33.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group3.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
+	
 	elseif (!empty($group4)) { 
 		$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group4' ");
 	 while($row = mysqli_fetch_array($q)) {
-		$group1 = $row['name'];
+		$group44 = $row['name'];
 	 }
-	echo 'Group 1) '.$group4.'</br>';}
+	echo 'Group 4) '.$group44.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group4.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
+	
 	elseif (!empty($group5)) { 
 		$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group5' ");
 	 while($row = mysqli_fetch_array($q)) {
-		$group1 = $row['name'];
+		$group55 = $row['name'];
 	 }
-	echo 'Group 1) '.$group5.'</br>';}
+	echo 'Group 5) '.$group55.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group5.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
+	
 	elseif (!empty($group6)) {
 	$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group6' ");
 	 while($row = mysqli_fetch_array($q)) {
-		$group1 = $row['name'];
+		$group66 = $row['name'];
 	 }
-	echo 'Group 1) '.$group6.'</br>';}
+	echo 'Group 6) '.$group66.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group6.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
+	
 	elseif (!empty($group7)) { 
 		$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group7' ");
 	 while($row = mysqli_fetch_array($q)) {
-		$group1 = $row['name'];
+		$group77 = $row['name'];
 	 }
-	echo 'Group 1) '.$group7.'</br>';}
+	echo 'Group 7) '.$group77.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group7.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
+	
 	elseif (!empty($group8)) {
 		$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group8' ");
 	 while($row = mysqli_fetch_array($q)) {
-		$group1 = $row['name'];
+		$group88 = $row['name'];
 	 }
-	echo 'Group 1) '.$group8.'</br>';}
+	echo 'Group 8) '.$group88.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group8.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
+	
 	elseif (!empty($group9)) { 
 		$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group9' ");
 	 while($row = mysqli_fetch_array($q)) {
-		$group1 = $row['name'];
+		$group99 = $row['name'];
 	 }
-	echo 'Group 1) '.$group9.'</br>';}
-	else { 
+	echo 'Group 9) '.$group99.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group9.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
+
+	elseif (!empty($group10)) { 
 		$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group10' ");
 	 while($row = mysqli_fetch_array($q)) {
-		$group1 = $row['name'];
+		$group1010 = $row['name'];
 	 }
-	 echo 'Group 1) '.$group10.'</br>';}
+	 echo 'Group 10) '.$group1010.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group10.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
 
 	}
 	elseif (isset($_SESSION['myusername']) == FALSE)  {header('../../listgroups.php');}
