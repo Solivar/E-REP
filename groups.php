@@ -17,6 +17,10 @@
 			<input type='submit' value='Join group' name='join' />
 		</form>
 	</div>
+	<div id='groups'>
+	<p>Your current groups! Remember that you may only join 10 groups.</p>
+	<?php include './resources/functions/listgroups.php'?>
+	</div>
 </div>
 <?php include 'footer.php'; ?>
 </body>
