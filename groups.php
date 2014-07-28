@@ -10,14 +10,11 @@
 			<p>Repeat password:</p><input name="grouppass2" type="password" size="20"></input>
 			<input type='submit' value='Create' name='reg' />
 		</form>
-	</div>
-</div>
-<div id="container">
-	<div class="registration-form">
+		<br/>
 		<form ACTION="./resources/functions/jgroup.php" METHOD="post">
 			<p>Group name:</p><input name="groupname" type="text" size="20"></input>
 			<p>Password:</p><input name="grouppass" type="password" size="20"></input>
-			<input type='submit' value='Join group' name='reg' />
+			<input type='submit' value='Join group' name='join' />
 		</form>
 	</div>
 </div>
