@@ -5,6 +5,7 @@
 <div id="container">
 	<div class="content">
 <?php
+
 //check for a form submission
 	$con = mysqli_connect("127.0.0.1","root","","erep");
 if(isset($_GET['username'])) {
