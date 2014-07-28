@@ -25,7 +25,7 @@
 		if ($q && mysqli_num_rows($q) > 0) {
 			echo 'That group name is already taken.';
 		}else{
-			$qq = mysqli_query($con, "INSERT INTO groups (name,group_password,members,owner_id) VALUES ('$regname', '$regpass1MD5','$myid','$myid')");
+			$qq = mysqli_query($con, "INSERT INTO groups (name,group_password,owner_id) VALUES ('$regname', '$regpass1MD5','$myid')");
 					$result2 = mysqli_query($con,"SELECT * FROM groups WHERE name='$regname' ");
 						while($row = mysqli_fetch_array($result2)) {
 						   $mygid = $row['id'];
