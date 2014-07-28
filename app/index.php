@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php include 'header.php'; 
-			session_start(); ?>
+<?php include 'header.php'; ?>
 <body>
 <div id="container">
 	<div id="profile-info">

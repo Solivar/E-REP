@@ -5,59 +5,42 @@
 <div id="container">
 	<div class="content">
 <?php
+$con = mysqli_connect("127.0.0.1","root","","erep");
 
-//check for a form submission
-	$con = mysqli_connect("127.0.0.1","root","","erep");
-if(isset($_GET['username'])) {
-	$username = $_GET['username'];			// username typed in the search menu
+if(isset($_SESSION['myusername'])) {
+
+	if(isset($_GET['username'])) 	$username = $_GET['username'];					// if the search function has been used it will set a value for $_GET 
+	else											$username = $_SESSION['myusername'];		// otherwise the $_SESSION value will be used
+
 	$userquery = mysqli_query($con, "SELECT * FROM user WHERE username='$username'") or die("The query couldn't be processed");
 
 	if(mysqli_num_rows($userquery) != 1) {
 		die("That username could not be found!");
 	}
+	
 	while($row = mysqli_fetch_array($userquery, MYSQL_ASSOC)) {
 		$user_id = $row['id'];
 		$user_name = $row['username'];		// username found in the database
 		$user_email = $row['email'];
-	} if($username != $user_name) {
-		die("There has been a fatal error. Please try again");
-	}
-	
-	echo '<h2>User ' . $user_name . ' user-profile</h2><br />';
-	echo '<p>User ID: ' . $user_id . '</p>';
-	echo '<p>Username: ' . $user_name . '</p>';
-	echo '<p>Email: ' . $user_email . '</p>';
-
-	
-// this part shows the profile of currently logged in user
-// s stands for session
-} else {
-
-	$s_username = $_SESSION['myusername'];		// username of the currently logged in user
-	$profile_query = mysqli_query($con, "SELECT * FROM user where username='$s_username' ") or die("The query couldn't be processed");
-	
-	if(mysqli_num_rows($profile_query) != 1 ) {
-		die("Couldn't find your profile");
-	}
-	
-	while($row = mysqli_fetch_array($profile_query, MYSQL_ASSOC)) {
-		$s_user_id = $row['id'];
-		$s_user_name = $row['username'];			// username found in the database
-		$s_user_email = $row['email'];
 	} 
 	
-	if($s_username != $s_user_name) {
+	if($username != $user_name) {
 		die("There has been a fatal error. Please try again");
 	}
+?>
 
-	echo '<h2>User ' . $s_user_name . ' user-profile</h2><br />';
-	echo '<p>User ID: ' . $s_user_id . '</p>';
-	echo '<p>Username: ' . $s_user_name . '</p>';
-	echo '<p>Email: ' . $s_user_email . '</p>';
+	<div id="profile-info">
+		<p id="avatar">Image</p>
+		<h2><?php echo $user_name; ?> - Reputation</h2>
+		<p>Name</p>
+		<p>Age</p>
+		<p>Location</p>
+		<p>Website</p>
+		<p>Bio</p>
+	</div>
 	
-
+<?php
 }
-	
 ?>
 	</div>
 	<div class="content">
