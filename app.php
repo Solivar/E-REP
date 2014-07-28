@@ -9,7 +9,7 @@
 		<p>
 		<?php 
 			//echo '<a href="http://localhost/E-REP/profile.php?username=' . $_SESSION['myID'] . '&submit=View+Profile">' . 'My Profile' . '</a>'
-			echo '<a href="http://localhost/E-REP/profile.php?username=' . $_SESSION['myusername'] . '&submit=View+Profile">' . 'My Profile' . '</a>';
+			echo '<a href="profile.php?username=' . $_SESSION['myusername'] . '&submit=View+Profile">' . 'My Profile' . '</a>';
 		?>
 		</p>
 	</div>

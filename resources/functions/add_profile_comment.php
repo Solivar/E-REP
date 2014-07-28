@@ -2,7 +2,6 @@
 	$con = mysqli_connect('127.0.0.1', 'root', '', 'erep');
 	
 	$_POST['comment_title'] = stripslashes($_POST['comment_title']);
-	$_POST['comment_content'] = stripslashes($_POST['comment_content']);
 	
 	if (isset($_POST['comment_title']) && isSet($_POST['comment_content']) ) {
 

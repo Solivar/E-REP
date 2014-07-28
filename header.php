@@ -13,7 +13,8 @@
 <div id="navigation">
 	<ul>
 		<li><a href="index.php">Home</a></li>
-		<li><a href="app.php">App</a></li>
+		<li><a href="app/index.php">App</a></li>
+		<li><a href="profile.php">Profile</a></li>
 		<li><a href="members.php">Members</a></li>
 		<li><a href="groups.php">Groups</a></li>
 		<?php  session_start(); if(isset($_SESSION['myusername']) == FALSE) { 
