@@ -20,6 +20,17 @@ header p {
   width: 100px;
   height: 100%;
   background-color: black;
+  color: white;
+}
+
+nav {
+  display: block;
+}
+nav li {
+  float: left;
+  margin-bottom: 50px;
+  padding-left: 25px;
+  list-style-type: none;
 }
 
 #container {
@@ -28,6 +39,9 @@ header p {
   margin-right: 50px;
   border-left: 2px solid #74929c;
   border-right: 2px solid #74929c;
+}
+#container .content {
+  margin-top: 50px;
 }
 #container #profile-info {
   width: 300px;

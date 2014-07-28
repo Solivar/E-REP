@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-<?php include 'header.php'; ?>
+<?php include 'header.php'; 
+			session_start(); ?>
 <body>
 <div id="container">
 	<div id="profile-info">
 		<p id="avatar">Image</p>
-		<h2>Your username - Reputation</h2>
+		<h2><?php echo $_SESSION['myusername']; ?> - Reputation</h2>
 		<p>Name</p>
 		<p>Age</p>
 		<p>Location</p>
@@ -21,8 +22,6 @@
 		</div>
 	</div>
 </div>
-<footer>
-The footer	
-</footer>
+<?php include 'footer.php'; ?>
 </body>
 </html>

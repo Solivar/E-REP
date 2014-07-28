@@ -5,6 +5,7 @@
 <div id="container">
 	<div class="content">
 <?php
+
 	$con=mysqli_connect("127.0.0.1","root","","erep");
 	// Check connection
 	if (mysqli_connect_errno())
@@ -19,7 +20,7 @@
 	  // Fetch one and one row
 	  $number = 1;
 	  while ($row = mysqli_fetch_array($result)) {
-		echo $number . ' ' . '<a href="http://localhost/E-REP/profile.php?username=' . $row['username'] . '&submit=View+Profile">' . $row['username'] . '</a>' .'<br />';
+		echo $number . ' ' . '<a href="http://localhost/E-REP/app/profile.php?username=' . $row['username'] . '">' . $row['username'] . '</a>' .'<br />';
 		$number++;
 		}
 	  // Free result set
@@ -39,7 +40,7 @@
 					<td><input type="text" id="username" name="username" /></td>
 				</tr>
 				<tr>
-					<td><input type="submit" id="submit" name="submit" value="View Profile" /></td>
+					<td><input type="submit" id="submit" value="View Profile" /></td>
 				</tr>
 				</table>
 		</form>
