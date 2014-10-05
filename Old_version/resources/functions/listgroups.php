@@ -8,35 +8,42 @@
 	   $ID = $row['id'];
 		   if (empty($row['group1']) == FALSE) {
 				   $group1 = $row['group1'];
-			}
-		   elseif (empty($row['group2']) == FALSE) {
+	
+		   if (empty($row['group2']) == FALSE) {
 				   $group2 = $row['group2'];
-			}
-			elseif (empty($row['group3']) == FALSE) {
+
+			if (empty($row['group3']) == FALSE) {
 				   $group3 = $row['group3'];
-			}
-			elseif (empty($row['group4']) == FALSE) {
+
+			if (empty($row['group4']) == FALSE) {
 				   $group4 = $row['group4'];
-			}
-			elseif (empty($row['group5']) == FALSE) {
+
+			if (empty($row['group5']) == FALSE) {
 				   $group5 = $row['group5'];
-			}
-			elseif (empty($row['group6']) == FALSE) {
+
+			if (empty($row['group6']) == FALSE) {
 				   $group6 = $row['group6'];
-			}
-			elseif (empty($row['group7']) == FALSE) {
+
+			if (empty($row['group7']) == FALSE) {
 				   $group7 = $row['group7'];
-			}
-			elseif (empty($row['group8']) == FALSE) {
+
+			if (empty($row['group8']) == FALSE) {
 				   $group8 = $row['group8'];
-			}
-			elseif (empty($row['group9']) == FALSE) {
+
+			if (empty($row['group9']) == FALSE) {
 				   $group9 = $row['group9'];
-			}
-			elseif (empty($row['group10']) == FALSE) {
+
 				   $group10 = $row['group10'];
-			}
+
 		}
+
+		$I = 0;
+		$result2 = mysqli_query($con,"SELECT * FROM groups WHERE owner_id='$ID' ");
+	   while($row = mysqli_fetch_array($result2)) {
+			   $I++;
+			   $OwnerGroupID[$I] = $row['id'];
+			   $OwnedGroupName[$I] = $row['name'];
+			}
 
 		
 	if (!empty($group1)) {
@@ -44,7 +51,7 @@
 	 while($row = mysqli_fetch_array($q)) {
 		$group11 = $row['name'];
 	 }
-	echo 'Group 1) '.$group11.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group1.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
+	echo 'Group 1) '.$group11.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group1.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>'; if(isset($OwnedGroupName[1]) & $OwnedGroupName[1] == $group11) {echo 'You are the owner of this group, if you leave group will be disbanded!';}}
 	
 	elseif (!empty($group2)) { 
 		$q = mysqli_query($con,"SELECT * FROM groups WHERE id='$group2' ");
@@ -109,7 +116,8 @@
 	 }
 	 echo 'Group 10) '.$group1010.' <a href="../../E-REP/resources/functions/lgroup.php?group='.$group10.'"><img style="border:0;" src="./img/x.png" alt="Leave group"></a></br>';}
 
-	}
+	
 	elseif (isset($_SESSION['myusername']) == FALSE)  {header('../../listgroups.php');}
 	else {echo "Please login";}
+	}
 	?>
