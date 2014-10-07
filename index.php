@@ -5,9 +5,9 @@
 	<form name="form1" method="post" action="./resources/functions/checking-login.php">
 	<p>
 	Username:
-	<input name="myusername" type="text" id="myusername">
+	<input name="Username" type="text" id="myusername">
 	Password:
-	<input name="mypassword" type="password" id="mypassword"> 
+	<input name="Password" type="password" id="mypassword"> 
 	<button id="reg" type="submit" name="Submit" value="Login">Login</button>
 	<div id="Close-Login">X</div>
 	</p>
@@ -31,7 +31,7 @@
 
 <?php
 session_start();
-if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['RegistrationComplete'])) {session_destroy(); } 
+if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['RegistrationComplete'])) {session_destroy(); echo 'You have succesfully registers, you may login now!';} 
 if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['PasswordMissmatch'])) { if ($_SESSION['PasswordMissmatch']==True) { echo '<div id="PasswordError">Your password did not match</div>';}}
 if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['EmailMissmatch'])) { if ($_SESSION['EmailMissmatch']==True) { echo '<div id="EmailError">Your Email address did not match</div>';}}
 if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['FalseEmail'])) { if ($_SESSION['FalseEmail']==True) { echo '<div id="FalseEmail">Please enter valid E-Mail address!</div>';}}

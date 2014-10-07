@@ -1,4 +1,6 @@
 <?php 
+session_unset();
+session_destroy();
 session_start();
 $_SESSION['RegistrationInProgress'] = True;
 
@@ -26,21 +28,21 @@ $RegisteredPassword2 =$MysqlConnection->real_escape_string($RegisteredPassword2)
 
 if ($RegisteredPassword != $RegisteredPassword2) {
 	$_SESSION['PasswordMissmatch'] = True;
-	header('Location: .../index.php');
+	header('Location: ../../index.php');
 }
 if ($Email != $Email2) {
 	$_SESSION['EmailMissmatch'] = True;
-	header('Location: .../index.php');
+	header('Location: ../../index.php');
 }
-if (filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+if (filter_var($Email, FILTER_VALIDATE_EMAIL) == False) {
     	$_SESSION['FalseEmail'] = True;
-		header('Location: .../index.php');
+		header('Location: ../../index.php');
 }
 
-$UniqueUsernameCheck = mysqli_query($MysqlConnection, "SELECT * FROM user WHERE `username`='$RegisteredName'");
+$UniqueUsernameCheck = mysqli_query($MysqlConnection, "SELECT * FROM user WHERE `user_name`='$RegisteredName'");
 if (mysqli_num_rows($UniqueUsernameCheck) > 0) {
 		$_SESSION['UsernameTaken'] = True;
-		header('Location: .../index.php');
+		header('Location: ../../index.php');
 }
 		
 		
@@ -48,16 +50,15 @@ $SALT = "ripemd128";
 
 if ($RegisteredPassword == $RegisteredPassword) {$HashedPassword = hash($SALT, $RegisteredPassword);}
 
-if (isset($RegisteredName) & isset($Email) & isset($HashedPassword) {
-	$CreateUser = mysqli_query($MysqlConnection, "INSERT INTO user (username,password,email) VALUES ('$RegisteredNam', '$HashedPassword', '$Email')");
+if (isset($RegisteredName) & isset($Email) & isset($HashedPassword)) {
+	$CreateUser = mysqli_query($MysqlConnection, "INSERT INTO erep_user (user_name,user_password,user_email,user_level,user_points) VALUES ('$RegisteredName', '$HashedPassword', '$Email','1','100')");
 	
 	if ($CreateUser) {
 				$_SESSION['RegistrationComplete'] = True;
-				header("location:.../index.php");
+				header("location:../../index.php");
 			}
 	else
 				echo 'Something has went wrong please go back and try again!';
 	}
 	
-}
 ?>
