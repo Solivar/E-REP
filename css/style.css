@@ -1,0 +1,142 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+html,
+body {
+  background-color: #fffac8;
+  height: 100%;
+}
+
+/* === HEADER === */
+#header {
+  width: 100%;
+  height: 300px;
+  background-color: #ffcf48;
+  display: table;
+}
+#header h1 {
+  font-size: 98px;
+  border: 8px solid white;
+  width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#header #site-branding {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: white;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* === CONTAINER === */
+#container {
+	width: 475px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 25px;
+	background-color: rgba(73, 73, 73, 0.45);
+	padding: 5px;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+}
+#Close-Login {
+	color: red;
+	font-weight: bold;
+	position: relative;
+	font-size: 20px;
+	cursor: pointer;
+	bottom: 25px;
+	left: 460px;
+}
+#sign-up {
+  width: 250px;
+  height: 300px;
+  background-color: orange;
+  border: 2px solid white;
+}
+#sign-up div {
+  background-color: #7dffa0;
+  width: 200px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: table;
+  text-align: center;
+  border-radius: 7.5px;
+}
+#sign-up div a {
+  text-decoration: none;
+  color: white;
+  display: table-cell;
+  vertical-align: middle;
+}
+#sign-up div:hover {
+  width: 10px;
+  height: 10px;
+}
+
+.content {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === NAVIGATION === */
+#navigation {
+  width: 650px;
+  height: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 25px;
+  padding-right: 25px;
+  background-color: #e8903c;
+  -webkit-border-bottom-right-radius: 50px;
+  -webkit-border-bottom-left-radius: 50px;
+  -moz-border-radius-bottomright: 50px;
+  -moz-border-radius-bottomleft: 50px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+#navigation ul {
+  display: inline;
+}
+
+#navigation li {
+  float: left;
+  list-style-type: none;
+  padding-right: 10px;
+}
+
+/* === FOOTER === */
+footer {
+  width: 100%;
+  height: 200px;
+  margin-top: -200px;
+  background-color: #e1e1ff;
+}
+footer .wrapper {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* === REGISTRATION FORM === */
+.registration-form {
+  width: 200px;
+  height: 350px;
+  border: 2px solid green;
+}
+
+form input {
+  border: 1px solid #707f91;
+}
