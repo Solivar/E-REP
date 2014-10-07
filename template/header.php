@@ -22,11 +22,11 @@ else { $LoggedIn = False;}
 <div id="navigation">
 	<ul>
 		<li><a href="index.php">Home</a></li>
-		<li><a href="app/index.php">App</a></li>
+		<li><a href="app/index.php">Profile</a></li>
 		<li><a href="groups.php">Groups</a></li>
 		<?php if($LoggedIn == False) { 
-		echo '<li><button id="login">Login</button></a></li>'; 
-		echo '<li><a href="registration.php">Registration</a></li>';}?>
+		echo '<li><button id="login">Login</button></li>'; 
+		echo '<li><button id="register">Registration</button></li>';}?>
 		<?php if($LoggedIn == True) { 
 		echo '<li><a href="resources/functions/logout.php">Logout</a></li>';}?>
 	</ul>
@@ -34,10 +34,20 @@ else { $LoggedIn = False;}
 <script>
 $(function(){
 $("#Close-Login").click(function(){
-  $("#container").hide();
+  $("#login-container").hide("slow");
 });
 $("#login").click(function(){
-  $("#container").show("slow");
+  $("#login-container").show("slow");
+});
+});
+</script>
+<script>
+$(function(){
+$("#Close-Registration").click(function(){
+  $("#registration-container").hide("slow");
+});
+$("#register").click(function(){
+  $("#registration-container").show("slow");
 });
 });
 </script>

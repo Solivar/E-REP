@@ -38,7 +38,7 @@ body {
 }
 
 /* === CONTAINER === */
-#container {
+#login-container {
 	width: 475px;
 	margin-left: auto;
 	margin-right: auto;
@@ -56,6 +56,13 @@ body {
 	cursor: pointer;
 	bottom: 25px;
 	left: 460px;
+}
+#Close-Registration {
+	color: red;
+	font-weight: bold;
+	position: relative;
+	font-size: 20px;
+	cursor: pointer;
 }
 #sign-up {
   width: 250px;
