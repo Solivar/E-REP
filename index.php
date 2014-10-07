@@ -28,3 +28,12 @@
 		<div id="Close-Registration">X</div>
 	</div>
 </div>
+
+<?php
+session_start();
+if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['RegistrationComplete'])) {session_destroy(); } 
+if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['PasswordMissmatch'])) { if ($_SESSION['PasswordMissmatch']==True) { echo '<div id="PasswordError">Your password did not match</div>';}}
+if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['EmailMissmatch'])) { if ($_SESSION['EmailMissmatch']==True) { echo '<div id="EmailError">Your Email address did not match</div>';}}
+if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['FalseEmail'])) { if ($_SESSION['FalseEmail']==True) { echo '<div id="FalseEmail">Please enter valid E-Mail address!</div>';}}
+if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['UsernameTaken'])) { if ($_SESSION['UsernameTaken']==True) { echo '<div id="UsernameTaken">Username already taken please choose a new one!</div>';}}
+?>
