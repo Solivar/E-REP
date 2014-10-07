@@ -1,8 +1,13 @@
 <?php 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_SESSION['LoggedIn'])) {
 	$LoggedIn = True;
+
 }
 else { $LoggedIn = False;}
+
 ?>
 <head>
 <meta charset="utf-8" />
