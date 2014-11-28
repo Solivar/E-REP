@@ -34,6 +34,7 @@ $result = mysqli_query($MysqlConnection,$query);
 		session_destroy();
 		session_start();
 		$_SESSION['LoggedIn'] = True;
+		$_SESSION['UserName'] = $Username;
 		header('Location: ../../index.php');
 	}
 	else {
@@ -41,7 +42,6 @@ $result = mysqli_query($MysqlConnection,$query);
 		session_destroy();
 		session_start();
 		$_SESSION['FailedLogin'] = True;
-		echo $PasswordOnServer;
 		header('Location: ../../index.php');
 	}
 ?>

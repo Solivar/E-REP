@@ -34,7 +34,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 if (isset($_SESSION['FailedLogin'])) {session_destroy(); echo 'Your password or username was incorrect, please try again!';} 
-if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['RegistrationComplete'])) {session_destroy(); echo 'You have succesfully registers, you may login now!';} 
+if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['RegistrationComplete'])) {session_destroy(); echo 'You have succesfully registered, you may login now!';} 
 if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['PasswordMissmatch'])) { if ($_SESSION['PasswordMissmatch']==True) { echo '<div id="PasswordError">Your password did not match</div>';}}
 if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['EmailMissmatch'])) { if ($_SESSION['EmailMissmatch']==True) { echo '<div id="EmailError">Your Email address did not match</div>';}}
 if (isset($_SESSION['RegistrationInProgress'])== True & isset($_SESSION['FalseEmail'])) { if ($_SESSION['FalseEmail']==True) { echo '<div id="FalseEmail">Please enter valid E-Mail address!</div>';}}
