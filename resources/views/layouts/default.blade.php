@@ -1,4 +1,5 @@
-<html lang="en" class="h-100">
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
     @include('includes.head')
 <body class="d-flex flex-column h-100">
     @include('includes.header')
