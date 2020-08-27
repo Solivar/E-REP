@@ -4,12 +4,16 @@
 <body class="d-flex flex-column h-100">
     @include('includes.header')
 
-    <main class="flex-shrink-0">
-        <div class="container">
+    <div class="container">
+        @include('includes.navigation')
+
+        <main class="flex-shrink-0 mb-5">
             @yield('content')
-        </div>
-    </main>
+        </main>
+    </div>
+
 
     @include('includes.footer')
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Roboto);@charset "UTF-8";
 
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
@@ -34,7 +34,7 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: "Roboto", sans-serif;
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -66,7 +66,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -6375,7 +6375,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6500,7 +6500,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -10905,24 +10905,45 @@ a.text-dark:focus {
 }
 
 .site-branding {
-  height: 300px;
   background-color: #ffcf48;
   color: #ffffff;
 }
 
 .site-branding .logo {
-  font-size: 96px;
-  border: 8px solid #ffffff;
-  width: 500px;
-  margin: 0 auto;
+  font-size: 68px;
+  border: 6px solid #ffffff;
+  width: 300px;
   line-height: 1.1;
 }
 
 .site-branding .description {
-  font-size: 24px;
+  font-size: 20px;
 }
 
-body {
-  font-family: "Roboto Condensed", sans-serif;
+@media (min-width: 576px) {
+  .site-branding {
+    height: 300px;
+  }
+
+  .site-branding .logo {
+    border-width: 8px;
+    width: 100%;
+    max-width: 500px;
+    font-size: 96px;
+  }
+
+  .site-branding .description {
+    font-size: 24px;
+  }
+}
+
+.site-navigation {
+  padding-top: 4px;
+  background-color: #fbb900;
+  border-bottom-left-radius: 35px;
+  border-bottom-right-radius: 35px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
