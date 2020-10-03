@@ -65,7 +65,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-        <script src="{{ asset('js/app/index.js') }}" defer></script>
+        <script src="{{ asset('app/js/index.js') }}" defer></script>
     </div>
 </body>
 </html>
