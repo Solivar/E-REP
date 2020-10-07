@@ -4,19 +4,37 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Repositories\UserRepository;
+use App\User;
+
+use App\Services\UserService;
 
 class UserController extends Controller {
-    private $userRepository;
+    private $userService;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserService $userService)
     {
-        $this->userRepository = $userRepository;
+        $this->userService = $userService;
     }
 
-    function getProfile() {
-        $users = $this->userRepository->allUsers();
+    function getProfile(User $user) {
+        $profile = $this->userService->getProfile($user->id);
 
-        return "ok";
+        return $profile;
+    }
+
+    function postVote() {
+
+    }
+
+    function postProfileImage() {
+
+    }
+
+    function deleteProfileImage() {
+
+    }
+
+    function patchUserInfo() {
+
     }
 }

@@ -12,6 +12,7 @@ class Vote extends Component {
                         <div className="col-9">
                             <p><span className="font-weight-bold">Rick Bardani</span> 2 days ago</p>
                             <p>Very very bad. Not recommended.</p>
+                            <p>-1000</p>
                         </div>
                     </div>
                 </div>
