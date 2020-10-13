@@ -35,6 +35,12 @@ class UserService implements UserServiceInterface {
         return $votes;
     }
 
+    public function createVote($userId, $vote) {
+        $vote = $this->userRepository->createVote($userId, $vote);
+
+        return $vote;
+    }
+
     public function updateImage($image) {
 
     }
@@ -44,7 +50,9 @@ class UserService implements UserServiceInterface {
     }
 
     public function updateProfile($userId, $details) {
+        $user = $this->userRepository->updateUser($userId, $details);
 
+        return $user;
     }
 
     private function getProfileDetails($userId) {

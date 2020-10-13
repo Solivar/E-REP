@@ -12,4 +12,6 @@ interface UserServiceInterface {
     function deleteImage($userId);
 
     function updateProfile($userId, $details);
+
+    function createVote($userId, $vote);
 }

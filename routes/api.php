@@ -21,3 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('users/{user}', 'UserController@getProfile');
 Route::get('users/{user}/received-votes', 'UserController@getReceivedVotes');
+
+Route::post('users/{user}/received-votes', 'UserController@postUserVote');
+Route::patch('users/{user}', 'UserController@patchUser');

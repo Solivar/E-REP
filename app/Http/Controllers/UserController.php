@@ -29,8 +29,18 @@ class UserController extends Controller {
         return $votes;
     }
 
-    function postVote() {
+    function postUserVote(Request $request, User $user) {
+        $validatedData = $request->validate([
+            'description' => 'required|max:512',
+            'value' => 'required|integer|size:1,size:-1'
+        ]);
 
+        $validatedData['receiver_id'] = $user->id;
+
+        // TODO: Pass authed user ID instead of 1
+        $vote = $this->userService->createVote(1, $validatedData);
+
+        return $vote;
     }
 
     function postProfileImage() {
@@ -41,7 +51,15 @@ class UserController extends Controller {
 
     }
 
-    function patchUserInfo() {
+    function patchUser(Request $request, User $user) {
+        // TODO: Check if user is editing his own profile
 
+        $validatedData = $request->validate([
+            'name' => 'min:1|max:64',
+        ]);
+
+        $user = $this->userService->updateProfile($user->id, $validatedData);
+
+        return $user;
     }
 }
