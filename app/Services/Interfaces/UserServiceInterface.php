@@ -5,7 +5,7 @@ namespace App\Services\Interfaces;
 interface UserServiceInterface {
     function getProfile($userId);
 
-    function getVotes($userId, $offset, $limit);
+    function getReceivedVotes($userId);
 
     function updateImage($image);
 

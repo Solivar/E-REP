@@ -20,7 +20,7 @@ class CreateVotesTable extends Migration
             $table->foreignId('receiver_id');
             $table->foreign('receiver_id')->references('id')->on('users');
             $table->text('description');
-            $table->tinyInteger('vote');
+            $table->tinyInteger('value');
         });
     }
 

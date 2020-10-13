@@ -22,6 +22,13 @@ class UserController extends Controller {
         return $profile;
     }
 
+    function getReceivedVotes(Request $request, User $user) {
+        $page = $request->query('page');
+        $votes = $this->userService->getReceivedVotes($user->id, $page);
+
+        return $votes;
+    }
+
     function postVote() {
 
     }

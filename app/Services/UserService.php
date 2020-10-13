@@ -4,11 +4,19 @@ namespace App\Services;
 
 use App\User;
 use App\Services\Interfaces\UserServiceInterface;
+use App\Repositories\UserRepository;
 
 class UserService implements UserServiceInterface {
+    private $userRepository;
+
+    public function __construct(UserRepository $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
     public function getProfile($userId) {
         $details = $this->getProfileDetails($userId);
-        $reputation = $this->getUserReputation($userId);
+        $reputation = $this->getReputation($userId);
 
         return array(
             $details,
@@ -16,8 +24,15 @@ class UserService implements UserServiceInterface {
         );
     }
 
-    public function getVotes($userId, $offset, $limit) {
+    public function getReceivedVotes($userId, $page = 1, $limit = 5) {
+        if (is_null($page) || $page <= 0) {
+            $page = 1;
+        }
 
+        $offset = ($page - 1) * $limit;
+        $votes = $this->userRepository->getReceivedPaginatedVotes($userId, $offset, $limit);
+
+        return $votes;
     }
 
     public function updateImage($image) {
@@ -33,13 +48,22 @@ class UserService implements UserServiceInterface {
     }
 
     private function getProfileDetails($userId) {
+        $user = $this->userRepository->getUser($userId);
+
         return array(
-            "id" => $userId,
-            "name" => "Jack Bardani"
+            "id" => $user->id,
+            "name" => $user->name,
         );
     }
 
-    private function getUserReputation($userId) {
-        return -50000;
+    private function getReputation($userId) {
+        $votes = $this->userRepository->getReceivedVotes($userId);
+        $reputation = 0;
+
+        foreach ($votes as $vote) {
+            $reputation += $vote->value;
+        }
+
+        return $reputation;
     }
 }

@@ -12,6 +12,6 @@ $factory->define(Vote::class, function (Faker $faker) {
     return [
         'receiver_id' => factory(App\User::class),
         'description' => $faker->paragraph,
-        'vote' => $faker->randomElement(array(-1, 1))
+        'value' => $faker->randomElement(array(-1, 1))
     ];
 });
