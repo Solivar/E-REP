@@ -43,12 +43,22 @@ class UserController extends Controller {
         return $vote;
     }
 
-    function postProfileImage() {
+    function postProfileImage(Request $request) {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
+        ]);
 
+        $image = $request->file('image');
+
+        // TODO: Pass authed User ID
+        $path = $this->userService->updateImage(1, $image);
+
+        return $path;
     }
 
     function deleteProfileImage() {
-
+        $this->userService->deleteImage(1);
+        return 'kekw';
     }
 
     function patchUser(Request $request, User $user) {

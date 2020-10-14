@@ -24,3 +24,5 @@ Route::get('users/{user}/received-votes', 'UserController@getReceivedVotes');
 
 Route::post('users/{user}/received-votes', 'UserController@postUserVote');
 Route::patch('users/{user}', 'UserController@patchUser');
+Route::post('users/{user}/image', 'UserController@postProfileImage');
+Route::delete('users/{user}/image', 'UserController@deleteProfileImage');

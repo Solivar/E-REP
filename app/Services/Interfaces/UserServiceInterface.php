@@ -7,7 +7,7 @@ interface UserServiceInterface {
 
     function getReceivedVotes($userId);
 
-    function updateImage($image);
+    function updateImage($userId, $image);
 
     function deleteImage($userId);
 

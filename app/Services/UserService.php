@@ -2,7 +2,8 @@
 
 namespace App\Services;
 
-use App\User;
+use Illuminate\Support\Facades\Storage;
+
 use App\Services\Interfaces\UserServiceInterface;
 use App\Repositories\UserRepository;
 
@@ -41,11 +42,24 @@ class UserService implements UserServiceInterface {
         return $vote;
     }
 
-    public function updateImage($image) {
+    public function updateImage($userId, $image) {
+        $path = $image->store('images');
 
+        $this->deleteImage($userId);
+
+        $this->userRepository->updateUser($userId, array('image_path' => $path));
+
+        return $path;
     }
 
     public function deleteImage($userId) {
+        $user = $this->userRepository->getUser($userId);
+
+        if ($user->image_path) {
+            Storage::delete("{$user->image_path}");
+
+            $this->userRepository->updateUser($userId, array('image_path' => null));
+        }
 
     }
 
