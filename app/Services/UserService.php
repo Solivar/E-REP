@@ -19,10 +19,9 @@ class UserService implements UserServiceInterface {
         $details = $this->getProfileDetails($userId);
         $reputation = $this->getReputation($userId);
 
-        return array(
-            $details,
-            "reputation" => $reputation,
-        );
+        $details['reputation'] = $reputation;
+
+        return $details;
     }
 
     public function getReceivedVotes($userId, $page = 1, $limit = 5) {
@@ -75,6 +74,7 @@ class UserService implements UserServiceInterface {
         return array(
             "id" => $user->id,
             "name" => $user->name,
+            "created_at" => $user->created_at
         );
     }
 

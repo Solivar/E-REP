@@ -1,19 +1,45 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class VoteForm extends Component {
-    render() {
-        return (
-            <div>
-                <form>
-                    <div class="form-group">
-                        <label for="exampleFormControlTextarea1">Example textarea</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-            </div>
-        );
+import axios from 'axios';
+
+import { API_URL } from '../Consts';
+
+function VoteForm() {
+    const [description, setDescription] = useState('');
+
+    async function handleSubmit(e) {
+        e.preventDefault();
+
+        if (description.length < 1 || description > 512) {
+            return;
+        }
+
+        const res = await axios.post(`${API_URL}/users/1/received-votes`, {
+            receiver_id: 1,
+            description,
+            value: 1,
+        });
+
+        console.log(res);
+
+        setDescription('');
     }
+
+    function handleChange(e) {
+        setDescription(e.target.value);
+    }
+
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="description">Description</label>
+                    <textarea id="description" className="form-control" rows="3" onChange={handleChange}></textarea>
+                </div>
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    );
 }
 
 export default VoteForm;
