@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import axios from 'axios';
 
-import { API_URL } from '../Consts';
+import { API_URL } from '../../Consts';
 import Vote from './Vote';
 
 function VoteList() {
@@ -12,7 +12,6 @@ function VoteList() {
     useEffect(() => {
         async function fetchData() {
             const res = await axios(`${API_URL}/users/1/received-votes`);
-            // console.log(res.data[0]);
             setVotes(res.data);
             setIsLoading(false);
         }

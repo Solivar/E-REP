@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Avatar from './Avatar';
+import Image from './image/Image';
 import UserInfo from './UserInfo';
-import VoteForm from './VoteForm';
-import VoteList from './VoteList';
+import VoteForm from './vote/VoteForm';
+import VoteList from './vote/VoteList';
 
 class Profile extends Component {
     render() {
@@ -13,7 +13,7 @@ class Profile extends Component {
                     <div className="col-12 col-md-3">
                         <div className="row row-cols-1">
                             <div className="col">
-                                <Avatar />
+                                <Image />
                             </div>
                             <div className="col">
                                 <UserInfo />

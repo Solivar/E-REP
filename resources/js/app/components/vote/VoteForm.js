@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import axios from 'axios';
 
-import { API_URL } from '../Consts';
+import { API_URL } from '../../Consts';
 
 function VoteForm() {
     const [description, setDescription] = useState('');
