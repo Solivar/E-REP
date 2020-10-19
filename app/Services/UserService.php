@@ -74,6 +74,7 @@ class UserService implements UserServiceInterface {
         return array(
             "id" => $user->id,
             "name" => $user->name,
+            "image_path" => $user->image_path,
             "created_at" => $user->created_at
         );
     }

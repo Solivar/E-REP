@@ -1,16 +1,18 @@
 import React, { useRef } from 'react';
 
-import { API_URL } from '../../Consts';
+import { API_URL, DEFAULT_IMG_PATH } from '../../Consts';
 
-function ImageModal({ image_path }) {
+function ImageModal({ image_path, onImageUpload, onImageDelete }) {
     const inputEl = useRef(null);
+    const imgSrc = image_path ? image_path : DEFAULT_IMG_PATH;
 
     function onUploadClick() {
         inputEl.current.click();
     }
 
-    async function onImageDelete() {
-        await axios.delete(`${API_URL}/users/1/image`);
+    async function onDeleteClick() {
+        const res = await axios.delete(`${API_URL}/users/1/image`);
+        onImageDelete();
     }
 
     async function onFileSelect(e) {
@@ -18,7 +20,9 @@ function ImageModal({ image_path }) {
         const data = new FormData()
         data.append('image', file);
 
-        await axios.post(`${API_URL}/users/1/image`, data);
+        const res = await axios.post(`${API_URL}/users/1/image`, data);
+
+        onImageUpload(res.data);
     }
 
     return (
@@ -32,21 +36,16 @@ function ImageModal({ image_path }) {
                     </button>
                 </div>
                 <div className="modal-body">
-                    {image_path ?
-                        <div className="text-center">
-                            <img src={image_path} className="img-fluid" alt="User image"/>
-                        </div>
-                        :
-                        <p>You do not have a profile image yet</p>
-                    }
-
+                    <div className="text-center">
+                        <img src={imgSrc} className="img-fluid" alt="User image"/>
+                    </div>
                     <form className="d-none">
                         <input type="file" className="form-control-file" ref={inputEl} onChange={onFileSelect}/>
                     </form>
                 </div>
                 <div className="modal-footer">
                     <button type="button" className="btn btn-primary" onClick={onUploadClick}>Upload</button>
-                    <button type="button" className="btn btn-secondary" onClick={onImageDelete}>Delete</button>
+                    <button type="button" className="btn btn-secondary" onClick={onDeleteClick}>Delete</button>
                     <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
                 </div>

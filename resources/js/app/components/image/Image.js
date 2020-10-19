@@ -1,14 +1,22 @@
 import React from 'react';
 
-import ImageModal from './ImageModal';
+import styled from 'styled-components';
 
-function Image() {
+import { DEFAULT_IMG_PATH } from '../../Consts';
+
+
+const Img = styled.img`
+    cursor: pointer;
+`;
+
+function Image({ children, image_path }) {
+    const imgSrc = image_path ? image_path : DEFAULT_IMG_PATH;
     return (
         <div>
-            <img src="https://via.placeholder.com/150" className="img-fluid" alt="User image"
+            <Img src={imgSrc} className="img-fluid" alt="User image"
                 data-toggle="modal" data-target="#image-modal"
             />
-            <ImageModal image_path={null}/>
+            {children}
         </div>
     );
 }

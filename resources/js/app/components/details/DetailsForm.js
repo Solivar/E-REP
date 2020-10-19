@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { API_URL } from '../../Consts';
 
-function DetailsForm({ toggleEditName }) {
+function DetailsForm({ toggleEditName, onDetailsUpdate}) {
     const [name, setName] = useState('');
 
     async function handleSubmit(e) {
@@ -18,8 +18,8 @@ function DetailsForm({ toggleEditName }) {
             name,
         });
 
-        console.log(res);
-
+        onDetailsUpdate(res.data);
+        toggleEditName();
         setName('');
     }
 
