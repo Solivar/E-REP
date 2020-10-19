@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Image from './image/Image';
-import UserInfo from './UserInfo';
+import Details from './details/Details';
 import VoteForm from './vote/VoteForm';
 import VoteList from './vote/VoteList';
 
@@ -16,7 +16,7 @@ class Profile extends Component {
                                 <Image />
                             </div>
                             <div className="col">
-                                <UserInfo />
+                                <Details />
                             </div>
                         </div>
                     </div>
