@@ -18,7 +18,6 @@ function Profile() {
     useEffect(() => {
         async function fetchData() {
             const res = await axios(`${API_URL}/users/${id}`);
-            console.log(res.data);
             setDetails(res.data);
         }
         fetchData();

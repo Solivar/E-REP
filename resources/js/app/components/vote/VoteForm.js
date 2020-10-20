@@ -20,8 +20,6 @@ function VoteForm() {
             value: 1,
         });
 
-        console.log(res);
-
         setDescription('');
     }
 

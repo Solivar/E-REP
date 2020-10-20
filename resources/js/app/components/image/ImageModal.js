@@ -11,7 +11,7 @@ function ImageModal({ image_path, onImageUpload, onImageDelete }) {
     }
 
     async function onDeleteClick() {
-        const res = await axios.delete(`${API_URL}/users/1/image`);
+        await axios.delete(`${API_URL}/users/1/image`);
         onImageDelete();
     }
 

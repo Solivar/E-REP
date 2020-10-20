@@ -31,8 +31,14 @@ class UserService implements UserServiceInterface {
 
         $offset = ($page - 1) * $limit;
         $votes = $this->userRepository->getReceivedPaginatedVotes($userId, $offset, $limit);
+        $count = $this->userRepository->getReceivedVotesCount($userId);
 
-        return $votes;
+        $data = array(
+            'count' => $count,
+            'items' => $votes
+        );
+
+        return $data;
     }
 
     public function createVote($userId, $vote) {
@@ -72,10 +78,10 @@ class UserService implements UserServiceInterface {
         $user = $this->userRepository->getUser($userId);
 
         return array(
-            "id" => $user->id,
-            "name" => $user->name,
-            "image_path" => $user->image_path,
-            "created_at" => $user->created_at
+            'id' => $user->id,
+            'name' => $user->name,
+            'image_path' => $user->image_path,
+            'created_at' => $user->created_at
         );
     }
 

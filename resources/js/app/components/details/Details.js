@@ -10,7 +10,6 @@ function Details({ reputation, name, created_at, children }) {
     const [isEditingName, setIsEditingName] = useState(false);
 
     const toggleEditName = () => {
-        console.log('calling');
         setIsEditingName(!isEditingName);
     }
 

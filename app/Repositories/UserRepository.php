@@ -28,9 +28,16 @@ class UserRepository implements UserRepositoryInterface {
     }
 
     public function getReceivedPaginatedVotes($userId, $offset, $limit) {
-        $votes = Vote::where('receiver_id', $userId)->offset($offset)->limit($limit)->get();
+        $votes = Vote::where('receiver_id', $userId)
+            ->with('user')->offset($offset)->limit($limit)->orderBy('created_at', 'desc')->get();
 
         return $votes;
+    }
+
+    public function getReceivedVotesCount($userId) {
+        $count = Vote::where('receiver_id', $userId)->count();
+
+        return $count;
     }
 
     public function createVote($userId, $vote) {

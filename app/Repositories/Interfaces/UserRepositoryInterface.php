@@ -11,6 +11,8 @@ interface UserRepositoryInterface {
 
     public function getReceivedPaginatedVotes($userId, $offset, $limit);
 
+    public function getReceivedVotesCount($userId);
+
     public function createVote($userId, $vote);
 
     public function updateUser($userId, $details);
