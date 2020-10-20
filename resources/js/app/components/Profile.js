@@ -1,4 +1,3 @@
-import { update } from 'lodash';
 import React, { useState, useEffect } from 'react';
 
 import { API_URL } from '../Consts';
@@ -8,19 +7,19 @@ import DetailsForm from './details/DetailsForm';
 
 import Image from './image/Image';
 import ImageModal from './image/ImageModal';
-import VoteForm from './vote/VoteForm';
 import VoteList from './vote/VoteList';
 
 function Profile() {
     const id = 1;
     const [details, setDetails] = useState({});
 
+    async function fetchDetails() {
+        const res = await axios(`${API_URL}/users/${id}`);
+        setDetails(res.data);
+    }
+
     useEffect(() => {
-        async function fetchData() {
-            const res = await axios(`${API_URL}/users/${id}`);
-            setDetails(res.data);
-        }
-        fetchData();
+        fetchDetails();
     }, []);
 
     const onImageDelete = () => {
@@ -40,6 +39,10 @@ function Profile() {
         const newDetails = { ...details, ...updatedDetails };
 
         setDetails(newDetails);
+    }
+
+    const onListUpdated = () => {
+        fetchDetails();
     }
 
     return (
@@ -64,11 +67,7 @@ function Profile() {
                     </div>
                 </div>
                 <div className="col-12 col-md-9">
-                    <h4>Vote</h4>
-                    <VoteForm />
-                    <hr/>
-                    <h4>Recent votes</h4>
-                    <VoteList />
+                    <VoteList onListUpdated={onListUpdated}/>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 use App\User;
 
@@ -32,7 +33,7 @@ class UserController extends Controller {
     function postUserVote(Request $request, User $user) {
         $validatedData = $request->validate([
             'description' => 'required|max:512',
-            'value' => 'required|integer|size:1,size:-1'
+            'value' => ['required', 'integer', Rule::in([-1, 1])]
         ]);
 
         $validatedData['receiver_id'] = $user->id;

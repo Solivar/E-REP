@@ -4,21 +4,23 @@ import axios from 'axios';
 
 import { API_URL } from '../../Consts';
 import Vote from './Vote';
+import VoteForm from './VoteForm';
 
-function VoteList() {
+function VoteList({ onListUpdated }) {
     const [votes, setVotes] = useState([]);
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [page, setPage] = useState(1);
 
+    async function fetchVotes() {
+        const res = await axios(`${API_URL}/users/1/received-votes`);
+        setVotes(res.data.items);
+        setCount(res.data.count);
+        setIsLoading(false);
+    }
+
     useEffect(() => {
-        async function fetchData() {
-            const res = await axios(`${API_URL}/users/1/received-votes`);
-            setVotes(res.data.items);
-            setCount(res.data.count);
-            setIsLoading(false);
-        }
-        fetchData();
+        fetchVotes();
     }, []);
 
     const handleClick = async () => {
@@ -34,6 +36,12 @@ function VoteList() {
         setPage(newPage);
     }
 
+    const onVoteAdded = () => {
+        fetchVotes();
+        setPage(1);
+        onListUpdated();
+    }
+
     if (isLoading) {
         return (
             <p>Loading...</p>
@@ -41,7 +49,12 @@ function VoteList() {
     } else {
         return (
             <div>
-                {votes.map(vote => {
+                <h4>Vote</h4>
+                <VoteForm onVoteAdded={onVoteAdded}/>
+                <hr/>
+                <h4>Recent votes</h4>
+                { votes.length === 0 && <p>No votes yet</p>}
+                {votes.length > 0 && votes.map(vote => {
                     return <Vote key={vote.id} vote={vote} />
                 })}
                 { votes.length !== count &&
