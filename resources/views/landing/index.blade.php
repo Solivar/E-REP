@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('landing.layouts.default')
 @section('content')
     <div class="d-flex flex-column justify-content-center align-items-center">
         <h2 class="mb-3">Start using the app</h2>

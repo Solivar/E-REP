@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('app.layouts.app')
+
+@include('app.includes.navigation')
 
 @section('content')
 <script>

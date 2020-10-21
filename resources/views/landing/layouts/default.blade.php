@@ -1,11 +1,11 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-100">
-    @include('includes.head')
+    @include('landing.includes.head')
 <body class="d-flex flex-column h-100">
-    @include('includes.header')
+    @include('landing.includes.header')
 
     <div class="container">
-        @include('includes.navigation')
+        @include('landing.includes.navigation')
 
         <main class="flex-shrink-0 mb-5">
             @yield('content')
@@ -13,7 +13,7 @@
     </div>
 
 
-    @include('includes.footer')
+    @include('landing.includes.footer')
     <script src="{{ asset('js/scripts.js') }}"></script>
 </body>
 </html>

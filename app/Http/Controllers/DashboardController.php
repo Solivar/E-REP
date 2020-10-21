@@ -13,7 +13,7 @@ class DashboardController extends Controller {
     }
 
     public function profile(User $user) {
-        return view('dashboard')->with([
+        return view('app.dashboard')->with([
             'authUserId' => Auth::id(),
             'profileId' => $user->id,
         ]);

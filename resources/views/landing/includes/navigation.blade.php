@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item {{ Request::is('/') ? 'active' : '' }}">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home</span></a>
             </li>
             <li class="nav-item {{ Request::is('login') ? 'active' : '' }}">
                 <a class="nav-link" href="/login">Login</a>
