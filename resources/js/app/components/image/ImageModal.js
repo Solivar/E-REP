@@ -4,7 +4,7 @@ import { API_URL, DEFAULT_IMG_PATH } from '../../Consts';
 
 function ImageModal({ image_path, onImageUpload, onImageDelete }) {
     const inputEl = useRef(null);
-    const imgSrc = image_path ? image_path : DEFAULT_IMG_PATH;
+    const imgSrc = image_path ? `/${image_path}` : DEFAULT_IMG_PATH;
 
     function onUploadClick() {
         inputEl.current.click();

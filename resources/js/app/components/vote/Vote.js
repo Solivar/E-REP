@@ -3,7 +3,7 @@ import React from 'react';
 import { DEFAULT_IMG_PATH } from '../../Consts';
 
 function Vote({vote}) {
-    const imgSrc = vote.user.image_path ? vote.user.image_path : DEFAULT_IMG_PATH;
+    const imgSrc = vote.user.image_path ? `/${vote.user.image_path}` : DEFAULT_IMG_PATH;
 
     return (
         <div className="card mb-3">

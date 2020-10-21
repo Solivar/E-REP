@@ -58,7 +58,7 @@ function VoteForm({ onVoteAdded }) {
                             value="1"
                             checked={state.value === "1"}
                             />
-                        <label className="form-check-label" htmlFor="positive">1</label>
+                        <label className="form-check-label" htmlFor="positive">+1</label>
                     </div>
                     <div className="form-check form-check-inline">
                         <input

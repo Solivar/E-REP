@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 use App\User;
 
@@ -38,8 +39,7 @@ class UserController extends Controller {
 
         $validatedData['receiver_id'] = $user->id;
 
-        // TODO: Pass authed user ID instead of 1
-        $vote = $this->userService->createVote(1, $validatedData);
+        $vote = $this->userService->createVote(Auth::id(), $validatedData);
 
         return $vote;
     }
@@ -52,7 +52,7 @@ class UserController extends Controller {
         $image = $request->file('image');
 
         // TODO: Pass authed User ID
-        $path = $this->userService->updateImage(1, $image);
+        $path = $this->userService->updateImage(Auth::id(), $image);
 
         return $path;
     }

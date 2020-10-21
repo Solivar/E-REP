@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', 'DashboardController@index');
+
+    Route::prefix('api')->group(function () {
+        Route::get('users/{user}', 'UserController@getProfile');
+        Route::patch('users/{user}', 'UserController@patchUser');
+
+        Route::get('users/{user}/received-votes', 'UserController@getReceivedVotes');
+        Route::post('users/{user}/received-votes', 'UserController@postUserVote');
+
+        Route::post('users/{user}/image', 'UserController@postProfileImage');
+        Route::delete('users/{user}/image', 'UserController@deleteProfileImage');
+    });
+});

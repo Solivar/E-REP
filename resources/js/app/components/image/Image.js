@@ -10,7 +10,7 @@ const Img = styled.img`
 `;
 
 function Image({ children, image_path }) {
-    const imgSrc = image_path ? image_path : DEFAULT_IMG_PATH;
+    const imgSrc = image_path ? `/${image_path}` : DEFAULT_IMG_PATH;
     return (
         <div>
             <Img src={imgSrc} className="img-fluid" alt="User image"
