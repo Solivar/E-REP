@@ -13,9 +13,13 @@ function Image({ children, image_path }) {
     const imgSrc = image_path ? `/${image_path}` : DEFAULT_IMG_PATH;
     return (
         <div>
-            <Img src={imgSrc} className="img-fluid" alt="User image"
-                data-toggle="modal" data-target="#image-modal"
-            />
+            { globalData.authUserId === globalData.profileId ?
+                <Img src={imgSrc} className="img-fluid" alt="User image"
+                    data-toggle="modal" data-target="#image-modal"
+                />
+                :
+                <img src={imgSrc} className="img-fluid" alt="User image"/>
+            }
             {children}
         </div>
     );

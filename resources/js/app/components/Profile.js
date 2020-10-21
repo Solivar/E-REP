@@ -10,12 +10,13 @@ import ImageModal from './image/ImageModal';
 import VoteList from './vote/VoteList';
 
 function Profile() {
-    const id = 1;
     const [details, setDetails] = useState({});
+    const [isLoading, setIsLoading] = useState(true);
 
     async function fetchDetails() {
-        const res = await axios(`${API_URL}/users/${id}`);
+        const res = await axios(`${API_URL}/users/${globalData.profileId}`);
         setDetails(res.data);
+        setIsLoading(false);
     }
 
     useEffect(() => {
@@ -45,6 +46,11 @@ function Profile() {
         fetchDetails();
     }
 
+
+    if (isLoading) {
+        return <p>Loading...</p>;
+    }
+
     return (
         <div className="container">
             <div className="row">
@@ -56,18 +62,19 @@ function Profile() {
                                     image_path={details.image_path}
                                     onImageUpload={onImageUpload}
                                     onImageDelete={onImageDelete}
+                                    userId={details.id}
                                 />
                             </Image>
                         </div>
                         <div className="col">
                             <Details {...details}>
-                                <DetailsForm onDetailsUpdate={onDetailsUpdate}/>
+                                <DetailsForm onDetailsUpdate={onDetailsUpdate} userId={details.id}/>
                             </Details>
                         </div>
                     </div>
                 </div>
                 <div className="col-12 col-md-9">
-                    <VoteList onListUpdated={onListUpdated}/>
+                    <VoteList onListUpdated={onListUpdated} userId={details.id}/>
                 </div>
             </div>
         </div>

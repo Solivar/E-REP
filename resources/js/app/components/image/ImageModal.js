@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import { API_URL, DEFAULT_IMG_PATH } from '../../Consts';
 
-function ImageModal({ image_path, onImageUpload, onImageDelete }) {
+function ImageModal({ userId, image_path, onImageUpload, onImageDelete }) {
     const inputEl = useRef(null);
     const imgSrc = image_path ? `/${image_path}` : DEFAULT_IMG_PATH;
 
@@ -11,7 +11,7 @@ function ImageModal({ image_path, onImageUpload, onImageDelete }) {
     }
 
     async function onDeleteClick() {
-        await axios.delete(`${API_URL}/users/1/image`);
+        await axios.delete(`${API_URL}/users/${userId}/image`);
         onImageDelete();
     }
 
@@ -20,7 +20,7 @@ function ImageModal({ image_path, onImageUpload, onImageDelete }) {
         const data = new FormData()
         data.append('image', file);
 
-        const res = await axios.post(`${API_URL}/users/1/image`, data);
+        const res = await axios.post(`${API_URL}/users/${userId}/image`, data);
 
         onImageUpload(res.data);
     }

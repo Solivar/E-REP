@@ -22,8 +22,10 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/profile/{user}', 'DashboardController@profile');
 
     Route::prefix('api')->group(function () {
+        Route::get('me', 'UserController@getAuthUser');
         Route::get('users/{user}', 'UserController@getProfile');
         Route::patch('users/{user}', 'UserController@patchUser');
 

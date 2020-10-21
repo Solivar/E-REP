@@ -13,7 +13,13 @@ function Vote({vote}) {
                         <img src={imgSrc} alt="User image" className="img-fluid rounded-circle" />
                     </div>
                     <div className="col-9">
-                        <p><span className="font-weight-bold">{vote.user.name}</span> {vote.created_at}</p>
+                        <p>
+                            <a href={`/profile/${vote.user.id}`}
+                                className="text-dark text-decoration-none font-weight-bold mr-2">
+                                    {vote.user.name}
+                            </a>
+                            {vote.created_at}
+                        </p>
                         <p>{vote.description}</p>
                         <p>{vote.value}</p>
                     </div>

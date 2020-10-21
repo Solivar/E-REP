@@ -6,14 +6,14 @@ import { API_URL } from '../../Consts';
 import Vote from './Vote';
 import VoteForm from './VoteForm';
 
-function VoteList({ onListUpdated }) {
+function VoteList({ userId, onListUpdated }) {
     const [votes, setVotes] = useState([]);
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const [page, setPage] = useState(1);
 
     async function fetchVotes() {
-        const res = await axios(`${API_URL}/users/1/received-votes`);
+        const res = await axios(`${API_URL}/users/${userId}/received-votes`);
         setVotes(res.data.items);
         setCount(res.data.count);
         setIsLoading(false);
@@ -26,7 +26,7 @@ function VoteList({ onListUpdated }) {
     const handleClick = async () => {
         const newPage = page + 1;
 
-        const res = await axios(`${API_URL}/users/1/received-votes?page=${newPage}`);
+        const res = await axios(`${API_URL}/users/${userId}/received-votes?page=${newPage}`);
 
         const newVotes = [...votes, ...res.data.items];
         const newCount = res.data.count;

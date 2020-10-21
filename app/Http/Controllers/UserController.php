@@ -18,17 +18,21 @@ class UserController extends Controller {
         $this->userService = $userService;
     }
 
+    function getAuthUser() {
+        return Auth::id();
+    }
+
     function getProfile(User $user) {
         $profile = $this->userService->getProfile($user->id);
 
-        return $profile;
+        return response()->json($profile);
     }
 
     function getReceivedVotes(Request $request, User $user) {
         $page = $request->query('page');
         $votes = $this->userService->getReceivedVotes($user->id, $page);
 
-        return $votes;
+        return response()->json($votes);
     }
 
     function postUserVote(Request $request, User $user) {
@@ -41,29 +45,42 @@ class UserController extends Controller {
 
         $vote = $this->userService->createVote(Auth::id(), $validatedData);
 
-        return $vote;
+        return response()->json($vote);
     }
 
-    function postProfileImage(Request $request) {
+    function postProfileImage(Request $request, User $user) {
+        // TODO: Make a middleware for permission to edit only your own profile
+        if (Auth::id() !== $user->id) {
+            return;
+        }
+
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
         ]);
 
         $image = $request->file('image');
 
-        // TODO: Pass authed User ID
-        $path = $this->userService->updateImage(Auth::id(), $image);
+        $path = $this->userService->updateImage($user->id, $image);
 
         return $path;
     }
 
-    function deleteProfileImage() {
-        $this->userService->deleteImage(1);
-        return 'kekw';
+    function deleteProfileImage(User $user) {
+        // TODO: Make a middleware for permission to edit only your own profile
+        if (Auth::id() !== $user->id) {
+            return;
+        }
+
+        $this->userService->deleteImage($user->id);
+
+        return;
     }
 
     function patchUser(Request $request, User $user) {
-        // TODO: Check if user is editing his own profile
+        // TODO: Make a middleware for permission to edit only your own profile
+        if (Auth::id() !== $user->id) {
+            return;
+        }
 
         $validatedData = $request->validate([
             'name' => 'min:1|max:64',

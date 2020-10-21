@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { API_URL } from '../../Consts';
 
-function VoteForm({ onVoteAdded }) {
+function VoteForm({ userId, onVoteAdded }) {
     const defaultState = {
         value: '1',
         description: '',
@@ -23,8 +23,7 @@ function VoteForm({ onVoteAdded }) {
             return;
         }
 
-        await axios.post(`${API_URL}/users/1/received-votes`, {
-            receiver_id: 1,
+        await axios.post(`${API_URL}/users/${userId}/received-votes`, {
             description: state.description,
             value: parseInt(state.value),
         });

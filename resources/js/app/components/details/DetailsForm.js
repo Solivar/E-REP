@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { API_URL } from '../../Consts';
 
-function DetailsForm({ toggleEditName, onDetailsUpdate}) {
+function DetailsForm({ userId, toggleEditName, onDetailsUpdate }) {
     const [name, setName] = useState('');
 
     async function handleSubmit(e) {
@@ -14,7 +14,7 @@ function DetailsForm({ toggleEditName, onDetailsUpdate}) {
             return;
         }
 
-        const res = await axios.patch(`${API_URL}/users/1`, {
+        const res = await axios.patch(`${API_URL}/users/${userId}`, {
             name,
         });
 

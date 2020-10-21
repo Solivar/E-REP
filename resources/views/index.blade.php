@@ -5,7 +5,6 @@
         <div>
             <a href="/login" class="btn btn-primary btn-block mb-3">Log in</a>
             <p>Not a user? <a href="/register">Register here</a></p>
-
         </div>
     </div>
 @stop
