@@ -43,7 +43,6 @@ class UserRepository implements UserRepositoryInterface {
     public function createVote($userId, $vote) {
         $user = $this->getUser($userId);
 
-        dd($vote);
         $userVote = $user->votes()->create($vote);
 
         return $userVote;

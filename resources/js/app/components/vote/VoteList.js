@@ -50,7 +50,7 @@ function VoteList({ userId, onListUpdated }) {
         return (
             <div>
                 <h4>Vote</h4>
-                <VoteForm onVoteAdded={onVoteAdded}/>
+                <VoteForm onVoteAdded={onVoteAdded} userId={userId}/>
                 <hr/>
                 <h4>Recent votes</h4>
                 { votes.length === 0 && <p>No votes yet</p>}
